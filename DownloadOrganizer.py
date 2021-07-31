@@ -5,18 +5,27 @@ src = '/storage/emulated/0/Download'
 
 def main():
     for file in os.listdir(src):
+        
         if file.endswith('pdf'):
             directoryPath = os.path.join(src, 'Pdf')
+            
             if not os.path.exists(directoryPath):
                 os.mkdir(directoryPath)
                 print(directoryPath, 'created')
             shutil.move(os.path.join(src, file), directoryPath)
             print(file, 'moved')
+            
         elif file.endswith('jpg') or file.endswith('png'):
             directoryPath = os.path.join(src, 'Images')
+            
             if not os.path.exists(directoryPath):
                 os.mkdir(directoryPath)
                 print(directoryPath, 'created')
+            shutil.move(os.path.join(src, file), directoryPath)
+            print(file, 'moved')
+            
+        elif 'hw' in file or 'lab' in file:
+            directoryPath = '/storage/emulated/0/ahpython/cs61a/.zip Dump'
             shutil.move(os.path.join(src, file), directoryPath)
             print(file, 'moved')
 
